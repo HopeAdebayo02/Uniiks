@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     "CADI waiver",
     "DD waiver",
     "Minnesota disability services",
+    "community based services",
+    "employment services disability",
+    "homemaker services MN",
   ],
   openGraph: {
     title: "UNIIKS LLC | Home & Community-Based Disability Services",

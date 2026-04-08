@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Waivers & Eligibility",
@@ -26,6 +28,7 @@ const waivers = [
       "Employment Services",
       "Community Living Support",
     ],
+    color: "from-[#0C4A6E] to-[#0369A1]",
   },
   {
     abbreviation: "CADI",
@@ -45,6 +48,7 @@ const waivers = [
       "Respite Care",
       "Employment Services",
     ],
+    color: "from-[#0369A1] to-[#0891B2]",
   },
   {
     abbreviation: "BI",
@@ -64,6 +68,7 @@ const waivers = [
       "Adult Companion Services",
       "Employment Services",
     ],
+    color: "from-[#0891B2] to-[#06B6D4]",
   },
   {
     abbreviation: "CAC",
@@ -82,6 +87,7 @@ const waivers = [
       "Respite Care",
       "Adult Companion Services",
     ],
+    color: "from-[#06B6D4] to-[#0891B2]",
   },
   {
     abbreviation: "EW",
@@ -100,6 +106,7 @@ const waivers = [
       "Respite Care",
       "Community Living Support",
     ],
+    color: "from-[#F59E0B] to-[#D97706]",
   },
   {
     abbreviation: "AC",
@@ -117,6 +124,7 @@ const waivers = [
       "Adult Companion Services",
       "Respite Care",
     ],
+    color: "from-[#D97706] to-[#F59E0B]",
   },
 ];
 
@@ -124,79 +132,114 @@ export default function WaiversPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-light)] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Waivers & Eligibility</h1>
-          <p className="text-xl text-white/90 max-w-2xl">
-            We are an enrolled provider for multiple Minnesota Medicaid waiver programs. Learn about each program and find out if you qualify.
-          </p>
+      <section className="relative text-white py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/care-hands.jpg" alt="Caring hands providing comfort" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+        </div>
+        <div className="absolute inset-0 hero-pattern" />
+        <div className="relative max-w-7xl mx-auto px-4">
+          <div className="max-w-3xl">
+            <p className="text-[var(--color-accent)] font-semibold text-sm uppercase tracking-wider mb-3">Coverage & Eligibility</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-5">Waivers & Eligibility</h1>
+            <p className="text-xl text-white/85 max-w-2xl leading-relaxed">
+              We are an enrolled provider for multiple Minnesota Medicaid waiver programs. Learn about each program and find out if you qualify.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Overview */}
       <section className="py-12 bg-[var(--color-bg-alt)] border-b border-[var(--color-border)]">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-white rounded-xl p-8 border border-[var(--color-border)]">
-            <h2 className="text-xl font-bold text-[var(--color-text)] mb-3">What Are Medicaid Waivers?</h2>
-            <p className="text-[var(--color-text-light)] leading-relaxed">
-              Medicaid waivers are programs that allow states to provide home and community-based services as an alternative to institutional care (such as nursing facilities or hospitals). These waivers &ldquo;waive&rdquo; certain Medicaid requirements so that individuals can receive services in their homes and communities instead. Each waiver program has specific eligibility criteria and covers different types of services.
-            </p>
+          <AnimatedSection>
+            <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)] shadow-sm gradient-border">
+              <h2 className="text-xl font-bold text-[var(--color-text)] mb-3 mt-2">What Are Medicaid Waivers?</h2>
+              <p className="text-[var(--color-text-light)] leading-relaxed">
+                Medicaid waivers are programs that allow states to provide home and community-based services as an alternative to institutional care (such as nursing facilities or hospitals). These waivers &ldquo;waive&rdquo; certain Medicaid requirements so that individuals can receive services in their homes and communities instead. Each waiver program has specific eligibility criteria and covers different types of services.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Quick Nav */}
+      <section className="bg-white border-b border-[var(--color-border)] sticky top-20 z-40">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex overflow-x-auto gap-2 py-3 -mx-4 px-4">
+            {waivers.map((waiver) => (
+              <a
+                key={waiver.abbreviation}
+                href={`#${waiver.abbreviation.toLowerCase()}`}
+                className="whitespace-nowrap px-4 py-2 rounded-lg text-sm font-bold text-[var(--color-primary)] hover:bg-[var(--color-secondary)]/5 hover:text-[var(--color-secondary)] transition-colors shrink-0"
+              >
+                {waiver.abbreviation}
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Waiver Details */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 space-y-12">
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 space-y-10">
           {waivers.map((waiver) => (
-            <div key={waiver.abbreviation} id={waiver.abbreviation.toLowerCase()} className="bg-white border border-[var(--color-border)] rounded-xl overflow-hidden">
-              <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] text-white p-6 flex items-center gap-4">
-                <span className="bg-white/20 text-white text-xl font-bold px-4 py-2 rounded-lg">
-                  {waiver.abbreviation}
-                </span>
-                <h2 className="text-xl md:text-2xl font-bold">{waiver.name}</h2>
-              </div>
-              <div className="p-8">
-                <p className="text-[var(--color-text-light)] leading-relaxed mb-8">{waiver.description}</p>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-text)] mb-4 flex items-center gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      Eligibility Requirements
-                    </h3>
-                    <ul className="space-y-2">
-                      {waiver.eligibility.map((req) => (
-                        <li key={req} className="flex items-start gap-2 text-[var(--color-text-light)] text-sm">
-                          <span className="text-[var(--color-secondary)] mt-1.5 shrink-0">&bull;</span>
-                          {req}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-[var(--color-text)] mb-4 flex items-center gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                        <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
-                      </svg>
-                      Services We Provide Under This Waiver
-                    </h3>
-                    <ul className="space-y-2">
-                      {waiver.servicesAvailable.map((service) => (
-                        <li key={service} className="flex items-start gap-2 text-[var(--color-text-light)] text-sm">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[var(--color-secondary)] shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+            <AnimatedSection key={waiver.abbreviation}>
+              <div
+                id={waiver.abbreviation.toLowerCase()}
+                className="bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden shadow-sm scroll-mt-40"
+              >
+                <div className={`bg-gradient-to-r ${waiver.color} text-white p-6 flex items-center gap-4`}>
+                  <span className="bg-white/20 backdrop-blur-sm text-white text-xl font-bold px-5 py-2.5 rounded-xl">
+                    {waiver.abbreviation}
+                  </span>
+                  <h2 className="text-lg md:text-xl font-bold">{waiver.name}</h2>
+                </div>
+                <div className="p-7 md:p-8">
+                  <p className="text-[var(--color-text-light)] leading-relaxed mb-8">{waiver.description}</p>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="font-semibold text-[var(--color-text)] mb-4 flex items-center gap-2">
+                        <div className="w-7 h-7 bg-[var(--color-secondary)]/10 rounded-lg flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[var(--color-secondary)]" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        Eligibility Requirements
+                      </h3>
+                      <ul className="space-y-2.5">
+                        {waiver.eligibility.map((req) => (
+                          <li key={req} className="flex items-start gap-2 text-[var(--color-text-light)] text-sm">
+                            <span className="text-[var(--color-secondary)] mt-1.5 shrink-0">&bull;</span>
+                            {req}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-[var(--color-text)] mb-4 flex items-center gap-2">
+                        <div className="w-7 h-7 bg-[var(--color-success)]/10 rounded-lg flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[var(--color-success)]" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
-                          {service}
-                        </li>
-                      ))}
-                    </ul>
+                        </div>
+                        Services We Provide
+                      </h3>
+                      <ul className="space-y-2.5">
+                        {waiver.servicesAvailable.map((service) => (
+                          <li key={service} className="flex items-start gap-2 text-[var(--color-text-light)] text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[var(--color-success)] shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            {service}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </section>
@@ -204,22 +247,29 @@ export default function WaiversPage() {
       {/* Help Section */}
       <section className="py-16 bg-[var(--color-bg-alt)]">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-white rounded-xl p-8 md:p-12 border border-[var(--color-border)] text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text)] mb-4">
-              Need Help Determining Your Eligibility?
-            </h2>
-            <p className="text-[var(--color-text-light)] max-w-2xl mx-auto mb-8 text-lg">
-              Navigating waiver programs can be complex. Our team is here to help you understand your options and guide you through the process. Contact your county case manager or reach out to us directly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="bg-[var(--color-secondary)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[var(--color-primary-light)] transition-colors">
-                Contact Us for Help
-              </Link>
-              <Link href="/referrals" className="border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] px-8 py-4 rounded-lg font-semibold hover:bg-[var(--color-secondary)]/5 transition-colors">
-                Submit a Referral
-              </Link>
+          <AnimatedSection>
+            <div className="bg-white rounded-2xl p-8 md:p-12 border border-[var(--color-border)] shadow-sm text-center">
+              <div className="w-16 h-16 bg-[var(--color-secondary)]/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[var(--color-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text)] mb-4">
+                Need Help Determining Your Eligibility?
+              </h2>
+              <p className="text-[var(--color-text-light)] max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
+                Navigating waiver programs can be complex. Our team is here to help you understand your options and guide you through the process.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact" className="bg-[var(--color-secondary)] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors">
+                  Contact Us for Help
+                </Link>
+                <Link href="/referrals" className="border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] px-8 py-4 rounded-xl font-semibold hover:bg-[var(--color-secondary)]/5 transition-colors">
+                  Submit a Referral
+                </Link>
+              </div>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </>
