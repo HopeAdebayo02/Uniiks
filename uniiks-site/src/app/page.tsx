@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import StatsCounter from "@/components/StatsCounter";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const services = [
   {
@@ -347,7 +346,7 @@ export default function Home() {
               </h2>
               <div className="section-divider mx-auto mb-4" />
               <p className="text-[var(--color-text-light)] max-w-2xl mx-auto text-lg">
-                We offer a comprehensive range of home and community-based services designed to support independence and improve quality of life.
+                Our 144G Assisted Living community pairs a home-like residence with around-the-clock support, dignified personal care, and everything residents need to thrive.
               </p>
             </div>
           </AnimatedSection>
