@@ -6,10 +6,10 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 const services = [
   {
-    title: "Individualized Home Supports",
+    title: "144G Assisted Living",
     description:
-      "Personalized in-home support with family training to help individuals build independence and daily living skills.",
-    href: "/services#ihs",
+      "Our flagship program — a comfortable, home-like residence licensed under MN Statute 144G with personalized support plans built around each resident.",
+    href: "/services#assisted-living",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -17,21 +17,32 @@ const services = [
     ),
   },
   {
-    title: "Adult Companion Services",
+    title: "24-Hour Care & Supervision",
     description:
-      "Meaningful companionship and social engagement to reduce isolation and enhance quality of life.",
-    href: "/services#companion",
+      "Trained staff on-site around the clock to provide safety oversight, emergency response, and reassurance for residents and families.",
+    href: "/services#assisted-living",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
   },
   {
-    title: "Respite Care",
+    title: "Medication Management",
     description:
-      "Temporary relief for primary caregivers, ensuring your loved one receives attentive, quality care.",
-    href: "/services#respite",
+      "Trained staff help residents take the right medication at the right time, with documentation, monitoring, and coordination with providers.",
+    href: "/services#assisted-living",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Personal Care & Daily Living",
+    description:
+      "Dignified assistance with bathing, dressing, grooming, mobility, and other activities of daily living — tailored to each resident's needs.",
+    href: "/services#assisted-living",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -39,35 +50,24 @@ const services = [
     ),
   },
   {
-    title: "Employment Services",
+    title: "Nutritious Meals & Dining",
     description:
-      "Employment exploration, development, and ongoing support to help individuals find and maintain meaningful work.",
-    href: "/services#employment",
+      "Three home-cooked meals each day plus snacks, planned with residents' dietary needs and preferences in mind.",
+    href: "/services#assisted-living",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     ),
   },
   {
-    title: "Homemaker Services",
+    title: "Housekeeping & Laundry",
     description:
-      "Assistance with household tasks including cooking, cleaning, and home maintenance for a safe living environment.",
-    href: "/services#homemaker",
+      "A clean, safe, and comfortable residence — with routine housekeeping, linens, and laundry handled for every resident.",
+    href: "/services#assisted-living",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Community Living Support",
-    description:
-      "Helping individuals participate in community activities and develop the skills needed for independent living.",
-    href: "/services#icls",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
   },
@@ -179,28 +179,21 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-secondary)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-28 md:py-40">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm mb-6">
-              <span className="w-2 h-2 bg-[var(--color-accent)] rounded-full animate-pulse" />
-              Home & Community-Based Services in St. Paul, MN
-            </div>
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              We Care Like Family
+              144G Assisted Living
             </h1>
             <p className="text-xl md:text-2xl text-[var(--color-accent)] font-semibold mb-6">
-              Empowering Independence, One Person at a Time
+              We Care Like Family
             </p>
 
-            <p className="text-lg md:text-xl text-white/85 mb-10 max-w-2xl leading-relaxed">
-              UNIIKS LLC provides compassionate, individualized support services
-              that help people with disabilities live fulfilling lives in their
-              homes and communities.
+            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl leading-relaxed">
+              UNIIKS provides compassionate, person-centered 144G Assisted Living in Brooklyn Park, Minnesota — along with 245D home and community-based services that help individuals live fulfilling, independent lives.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -221,13 +214,13 @@ export default function Home() {
             {/* Quick contact */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-10 pt-8 border-t border-white/10">
               <a
-                href="tel:8479036172"
+                href="tel:7632882496"
                 className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                (847) 903-6172
+                (763) 288-2496
               </a>
               <span className="hidden sm:inline text-white/20">|</span>
               <a
@@ -277,9 +270,9 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <AnimatedSection delay={100}>
-              <Link href="/services" className="block bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            <AnimatedSection delay={100} className="h-full">
+              <Link href="/services" className="flex flex-col h-full bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -289,7 +282,7 @@ export default function Home() {
                 <p className="text-[var(--color-text-light)] text-sm mb-4">
                   Discover services designed to support your independence and help you achieve your personal goals.
                 </p>
-                <span className="text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="mt-auto text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
                   Explore Services
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -298,8 +291,8 @@ export default function Home() {
               </Link>
             </AnimatedSection>
 
-            <AnimatedSection delay={200}>
-              <Link href="/contact" className="block bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
+            <AnimatedSection delay={200} className="h-full">
+              <Link href="/contact" className="flex flex-col h-full bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -309,7 +302,7 @@ export default function Home() {
                 <p className="text-[var(--color-text-light)] text-sm mb-4">
                   Find the right support for your loved one. We work with families to create personalized care plans.
                 </p>
-                <span className="text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="mt-auto text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
                   Get in Touch
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -318,8 +311,8 @@ export default function Home() {
               </Link>
             </AnimatedSection>
 
-            <AnimatedSection delay={300}>
-              <Link href="/referrals" className="block bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
+            <AnimatedSection delay={300} className="h-full">
+              <Link href="/referrals" className="flex flex-col h-full bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-warm)] to-[var(--color-warm-light)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -329,7 +322,7 @@ export default function Home() {
                 <p className="text-[var(--color-text-light)] text-sm mb-4">
                   Submit referrals quickly and securely. We respond within 1-2 business days.
                 </p>
-                <span className="text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <span className="mt-auto text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
                   Make a Referral
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -440,7 +433,7 @@ export default function Home() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary-dark)]/80 to-transparent flex items-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-6">
                     <p className="text-white font-bold text-lg italic">&ldquo;We Care Like Family&rdquo;</p>
                   </div>
                 </div>
@@ -597,7 +590,7 @@ export default function Home() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/90 via-[var(--color-primary)]/85 to-[var(--color-secondary)]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
 
@@ -617,10 +610,10 @@ export default function Home() {
                 Contact Us Today
               </Link>
               <a
-                href="tel:8479036172"
+                href="tel:7632882496"
                 className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 hover:border-white/50 transition-all"
               >
-                Call (847) 903-6172
+                Call (763) 288-2496
               </a>
             </div>
           </AnimatedSection>

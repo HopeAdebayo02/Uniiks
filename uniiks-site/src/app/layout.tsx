@@ -16,15 +16,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "UNIIKS LLC | Home & Community-Based Disability Services in St. Paul, MN",
-    template: "%s | UNIIKS LLC",
+    default: "UNIIKS | 144G Assisted Living in Brooklyn Park, MN",
+    template: "%s | UNIIKS",
   },
   description:
-    "UNIIKS LLC provides compassionate, person-centered home and community-based services for individuals with disabilities in St. Paul, Minnesota. Services include Individualized Home Supports, respite care, companion services, and employment support.",
+    "UNIIKS provides 144G Assisted Living and 245D home & community-based services for individuals with disabilities and seniors in Brooklyn Park, Minnesota. Person-centered care that feels like family.",
   keywords: [
+    "144G assisted living",
+    "assisted living Brooklyn Park MN",
+    "245D services",
     "disability services",
     "home support",
-    "St. Paul MN",
     "HCBS",
     "individualized home supports",
     "family training",
@@ -38,11 +40,11 @@ export const metadata: Metadata = {
     "homemaker services MN",
   ],
   openGraph: {
-    title: "UNIIKS LLC | Home & Community-Based Disability Services",
+    title: "UNIIKS | 144G Assisted Living in Brooklyn Park, MN",
     description:
-      "Compassionate, person-centered home and community-based services for individuals with disabilities in St. Paul, Minnesota.",
+      "144G Assisted Living and 245D home & community-based services for individuals with disabilities and seniors in Brooklyn Park, Minnesota.",
     url: "https://uniikscare.com",
-    siteName: "UNIIKS LLC",
+    siteName: "UNIIKS",
     locale: "en_US",
     type: "website",
   },

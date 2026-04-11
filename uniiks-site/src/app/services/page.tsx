@@ -6,15 +6,34 @@ import AnimatedSection from "@/components/AnimatedSection";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore UNIIKS LLC's comprehensive home and community-based services including individualized home supports, respite care, companion services, homemaker services, and employment support in St. Paul, MN.",
+    "Explore UNIIKS services — 144G Assisted Living and 245D home & community-based services including individualized home supports, respite care, companion services, homemaker services, and employment support in Brooklyn Park, MN.",
 };
 
 const services = [
   {
-    id: "ihs",
-    title: "Individualized Home Supports with Family Training",
+    id: "assisted-living",
+    title: "144G Assisted Living",
     description:
-      "Our flagship service provides personalized in-home support that helps individuals with disabilities develop and maintain the skills needed for independent living. We work closely with families, providing training and guidance to ensure a supportive home environment.",
+      "Our flagship service. Licensed under Minnesota Statute 144G, our Assisted Living community combines a comfortable, home-like residence with the health, personal care, and supportive services people need to live with dignity and independence. We tailor each resident's support plan to their preferences, routines, and goals.",
+    features: [
+      "Private, home-like residence",
+      "24-hour staffing and safety oversight",
+      "Medication management and health monitoring",
+      "Assistance with activities of daily living",
+      "Nutritious meals and housekeeping",
+      "Personalized care plans",
+    ],
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    ),
+  },
+  {
+    id: "ihs",
+    title: "Individualized Home Supports with Family Training (245D)",
+    description:
+      "Our 245D home supports program provides personalized in-home support that helps individuals with disabilities develop and maintain the skills needed for independent living. We work closely with families, providing training and guidance to ensure a supportive home environment.",
     features: [
       "Daily living skills development",
       "Health and safety support in the home",
@@ -158,16 +177,16 @@ export default function ServicesPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
             <p className="text-[var(--color-accent)] font-semibold text-sm uppercase tracking-wider mb-3">What We Offer</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3">Our Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-3">144G Assisted Living & 245D Services</h1>
             <p className="text-lg text-[var(--color-accent)] font-semibold mb-3">We Care Like Family</p>
-            <p className="text-xl text-white/85 max-w-2xl leading-relaxed">
-              Comprehensive home and community-based services designed to support independence, build skills, and enhance quality of life.
+            <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
+              Our 144G Assisted Living pairs with comprehensive 245D home and community-based services to support independence, build skills, and enhance quality of life.
             </p>
           </div>
         </div>
@@ -251,7 +270,7 @@ export default function ServicesPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/90 via-[var(--color-primary)]/85 to-[var(--color-secondary)]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4 text-center">
@@ -264,8 +283,8 @@ export default function ServicesPage() {
               <Link href="/contact" className="bg-white text-[var(--color-primary)] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all hover:shadow-lg">
                 Schedule a Consultation
               </Link>
-              <a href="tel:8479036172" className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 hover:border-white/50 transition-all">
-                Call (847) 903-6172
+              <a href="tel:7632882496" className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 hover:border-white/50 transition-all">
+                Call (763) 288-2496
               </a>
             </div>
           </AnimatedSection>

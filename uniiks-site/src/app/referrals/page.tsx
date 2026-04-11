@@ -26,10 +26,28 @@ const serviceOptions = [
 
 export default function ReferralsPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "referral", email: data.referrerEmail, ...data }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error || "Unable to submit referral. Please try again.");
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -38,15 +56,15 @@ export default function ReferralsPage() {
       <section className="relative text-white py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/support-home.jpg" alt="Caregiver supporting client at home" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
             <p className="text-[var(--color-accent)] font-semibold text-sm uppercase tracking-wider mb-3">For Professionals & Families</p>
             <h1 className="text-4xl md:text-5xl font-bold mb-5">Make a Referral</h1>
-            <p className="text-xl text-white/85 max-w-2xl leading-relaxed">
-              Are you a case manager, social worker, or family member? Submit a referral for home and community-based services through UNIIKS.
+            <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
+              Are you a case manager, social worker, or family member? Submit a referral for 144G Assisted Living or 245D home and community-based services through UNIIKS.
             </p>
           </div>
         </div>
@@ -136,7 +154,7 @@ export default function ReferralsPage() {
                         </div>
                         <div>
                           <label htmlFor="clientCounty" className="block text-sm font-medium text-[var(--color-text)] mb-1.5">County of Residence *</label>
-                          <input type="text" id="clientCounty" name="clientCounty" required placeholder="e.g., Ramsey County" className="w-full px-4 py-3 border border-[var(--color-border)] rounded-xl focus:ring-2 focus:ring-[var(--color-secondary)] focus:border-transparent outline-none" />
+                          <input type="text" id="clientCounty" name="clientCounty" required placeholder="e.g., Hennepin County" className="w-full px-4 py-3 border border-[var(--color-border)] rounded-xl focus:ring-2 focus:ring-[var(--color-secondary)] focus:border-transparent outline-none" />
                         </div>
                       </div>
                     </fieldset>
@@ -178,11 +196,18 @@ export default function ReferralsPage() {
                       </div>
                     </fieldset>
 
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
+                        {error}
+                      </div>
+                    )}
+
                     <button
                       type="submit"
-                      className="bg-[var(--color-secondary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors w-full sm:w-auto"
+                      disabled={submitting}
+                      className="bg-[var(--color-secondary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Submit Referral
+                      {submitting ? "Submitting..." : "Submit Referral"}
                     </button>
                   </form>
                 </div>
@@ -202,11 +227,11 @@ export default function ReferralsPage() {
                   If you have questions about the referral process or need assistance, please contact us directly.
                 </p>
                 <div className="space-y-3">
-                  <a href="tel:8479036172" className="flex items-center gap-2 text-[var(--color-secondary)] font-semibold text-sm hover:text-[var(--color-primary)] transition-colors">
+                  <a href="tel:7632882496" className="flex items-center gap-2 text-[var(--color-secondary)] font-semibold text-sm hover:text-[var(--color-primary)] transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
-                    (847) 903-6172
+                    (763) 288-2496
                   </a>
                   <a href="mailto:admin@uniikscare.com" className="flex items-center gap-2 text-[var(--color-secondary)] font-semibold text-sm hover:text-[var(--color-primary)] transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">

@@ -6,7 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 export const metadata: Metadata = {
   title: "Waivers & Eligibility",
   description:
-    "Learn about the Medicaid waiver programs accepted by UNIIKS LLC including DD, CADI, BI, CAC, Elderly Waiver, and Alternative Care waiver programs in Minnesota.",
+    "Learn about the Medicaid waiver programs accepted by UNIIKS including DD, CADI, BI, CAC, Elderly Waiver, and Alternative Care waiver programs in Minnesota.",
 };
 
 const waivers = [
@@ -135,7 +135,7 @@ export default function WaiversPage() {
       <section className="relative text-white py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/care-hands.jpg" alt="Caring hands providing comfort" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4">

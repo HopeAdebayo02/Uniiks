@@ -6,10 +6,28 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "contact", ...data }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error || "Unable to send message. Please try again.");
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -18,7 +36,7 @@ export default function ContactPage() {
       <section className="relative text-white py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/happy-senior.jpg" alt="Happy senior" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4">
@@ -47,7 +65,7 @@ export default function ContactPage() {
                   ),
                   content: (
                     <address className="not-italic text-[var(--color-text-light)] text-sm">
-                      220 Robert St S, Ste 107<br />St. Paul, MN 55107
+                      1909 S Meadowwood Ct<br />Brooklyn Park, MN 55444
                     </address>
                   ),
                 },
@@ -59,8 +77,8 @@ export default function ContactPage() {
                     </svg>
                   ),
                   content: (
-                    <a href="tel:8479036172" className="text-[var(--color-secondary)] font-semibold hover:text-[var(--color-primary)] transition-colors">
-                      (847) 903-6172
+                    <a href="tel:7632882496" className="text-[var(--color-secondary)] font-semibold hover:text-[var(--color-primary)] transition-colors">
+                      (763) 288-2496
                     </a>
                   ),
                 },
@@ -124,6 +142,11 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
+                        {error}
+                      </div>
+                    )}
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-[var(--color-text)] mb-1.5">Full Name *</label>
@@ -158,9 +181,10 @@ export default function ContactPage() {
                     </div>
                     <button
                       type="submit"
-                      className="bg-[var(--color-secondary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors w-full sm:w-auto"
+                      disabled={submitting}
+                      className="bg-[var(--color-secondary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {submitting ? "Sending..." : "Send Message"}
                     </button>
                   </form>
                 )}
@@ -178,8 +202,8 @@ export default function ContactPage() {
             <div className="section-divider mx-auto mb-8" />
             <div className="bg-white border border-[var(--color-border)] rounded-2xl overflow-hidden h-96 shadow-sm">
               <iframe
-                title="UNIIKS LLC Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2824.5!2d-93.0935!3d44.9465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f7d519f1e11111%3A0x0!2s220+Robert+St+S%2C+St+Paul%2C+MN+55107!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                title="UNIIKS Office Location"
+                src="https://www.google.com/maps?q=1909+S+Meadowwood+Ct,+Brooklyn+Park,+MN+55444&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -6,7 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about UNIIKS LLC — our mission, values, and commitment to providing person-centered disability support services in St. Paul, Minnesota.",
+    "Learn about UNIIKS — our mission, values, and commitment to providing 144G Assisted Living and 245D support services in Brooklyn Park, Minnesota.",
 };
 
 const values = [
@@ -73,9 +73,9 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2022", title: "Founded", description: "UNIIKS LLC established in St. Paul, MN with a vision to empower individuals with disabilities." },
+  { year: "2022", title: "Founded", description: "UNIIKS established in Minnesota with a vision to empower individuals with disabilities and seniors." },
   { year: "2022", title: "Licensed", description: "Received Minnesota DHS licensure (License #1112536) to provide home and community-based services." },
-  { year: "2023", title: "Growing", description: "Expanded service offerings and team to serve more individuals across Ramsey County and beyond." },
+  { year: "2023", title: "Growing", description: "Expanded service offerings and team to serve more individuals across the Twin Cities and beyond." },
   { year: "2024", title: "Evolving", description: "Continued growth with enhanced training programs and culturally responsive service delivery." },
 ];
 
@@ -92,7 +92,7 @@ export default function AboutPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4">
@@ -101,8 +101,8 @@ export default function AboutPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-3">
               We Care Like Family
             </h1>
-            <p className="text-xl text-white/85 max-w-2xl leading-relaxed">
-              Since 2022, UNIIKS has been committed to providing compassionate, person-centered support services for individuals with disabilities in St. Paul, Minnesota.
+            <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
+              Since 2022, UNIIKS has been committed to providing compassionate 144G Assisted Living and 245D support services for individuals with disabilities and seniors in Brooklyn Park, Minnesota.
             </p>
           </div>
         </div>
@@ -118,10 +118,10 @@ export default function AboutPage() {
               <div className="section-divider mb-6" />
               <div className="space-y-4 text-[var(--color-text-light)] leading-relaxed">
                 <p>
-                  Founded in 2022, UNIIKS LLC was born out of a deep commitment to improving the lives of individuals with disabilities in the Twin Cities community. We recognized a need for home and community-based services that truly put the individual first — services that are not just about meeting basic needs, but about unlocking potential and fostering genuine independence.
+                  Founded in 2022, UNIIKS was born out of a deep commitment to improving the lives of individuals with disabilities and seniors in the Twin Cities community. We recognized a need for 144G Assisted Living and 245D services that truly put the individual first — services that are not just about meeting basic needs, but about unlocking potential and fostering genuine independence.
                 </p>
                 <p>
-                  Located in the heart of St. Paul, we serve individuals and families throughout Ramsey County and the greater Twin Cities area. Our team of dedicated professionals brings together diverse experiences and a shared passion for making a meaningful difference in people&apos;s lives.
+                  Based in Brooklyn Park, we serve individuals and families throughout Hennepin County and the greater Twin Cities area. Our team of dedicated professionals brings together diverse experiences and a shared passion for making a meaningful difference in people&apos;s lives.
                 </p>
                 <p>
                   As a licensed provider under the Minnesota Department of Human Services, we are committed to maintaining the highest standards of care while continuously evolving to meet the changing needs of our community.
@@ -148,8 +148,8 @@ export default function AboutPage() {
                 <div className="grid grid-cols-2 gap-6">
                   {[
                     { label: "Founded", value: "2022" },
-                    { label: "Location", value: "St. Paul, MN" },
-                    { label: "Service Area", value: "Ramsey County & Beyond" },
+                    { label: "Location", value: "Brooklyn Park, MN" },
+                    { label: "Service Area", value: "Hennepin County & Beyond" },
                     { label: "License", value: "MN DHS #1112536" },
                     { label: "Status", value: "Active" },
                     { label: "Founder", value: "Kayode Odufuye" },
@@ -282,7 +282,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/90 via-[var(--color-primary)]/85 to-[var(--color-secondary)]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4 text-center">

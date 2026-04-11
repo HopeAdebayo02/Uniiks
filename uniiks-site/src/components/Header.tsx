@@ -40,11 +40,11 @@ export default function Header() {
       <div className="bg-[var(--color-primary-dark)] text-white text-sm py-2.5">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-5">
-            <a href="tel:8479036172" className="hover:text-[var(--color-accent)] flex items-center gap-1.5 transition-colors">
+            <a href="tel:7632882496" className="hover:text-[var(--color-accent)] flex items-center gap-1.5 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              (847) 903-6172
+              (763) 288-2496
             </a>
             <span className="hidden sm:inline text-white/30">|</span>
             <a href="mailto:admin@uniikscare.com" className="hover:text-[var(--color-accent)] hidden sm:flex items-center gap-1.5 transition-colors">
@@ -69,14 +69,14 @@ export default function Header() {
           scrolled ? "shadow-md" : "shadow-sm border-b border-[var(--color-border)]"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
               src="/logo.jpg"
-              alt="UNIIKS LLC Logo"
-              width={160}
-              height={50}
-              className="h-12 w-auto"
+              alt="UNIIKS Logo"
+              width={240}
+              height={80}
+              className="h-20 w-auto"
               priority
             />
           </Link>
@@ -110,7 +110,7 @@ export default function Header() {
           {/* Mobile: Phone + Hamburger */}
           <div className="flex items-center gap-3 xl:hidden">
             <a
-              href="tel:8479036172"
+              href="tel:7632882496"
               className="p-2 rounded-lg text-[var(--color-secondary)] hover:bg-[var(--color-bg-alt)] transition-colors"
               aria-label="Call us"
             >
@@ -163,8 +163,8 @@ export default function Header() {
               Get Started
             </Link>
             <div className="flex items-center justify-center gap-4 mt-3 pt-3 border-t border-[var(--color-border)]">
-              <a href="tel:8479036172" className="text-sm text-[var(--color-primary)] font-semibold">
-                Call: (847) 903-6172
+              <a href="tel:7632882496" className="text-sm text-[var(--color-primary)] font-semibold">
+                Call: (763) 288-2496
               </a>
               <span className="text-[var(--color-border)]">|</span>
               <a href="mailto:admin@uniikscare.com" className="text-sm text-[var(--color-primary)] font-semibold">

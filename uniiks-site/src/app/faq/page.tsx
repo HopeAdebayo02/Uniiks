@@ -7,19 +7,19 @@ import FAQ from "@/components/FAQ";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Find answers to common questions about UNIIKS LLC's disability services, Medicaid waivers, referral process, and more.",
+    "Find answers to common questions about UNIIKS's 144G Assisted Living, 245D disability services, Medicaid waivers, referral process, and more.",
 };
 
 const generalFAQs = [
   {
-    question: "What is UNIIKS LLC?",
+    question: "What is UNIIKS?",
     answer:
-      "UNIIKS LLC is a licensed home and community-based services (HCBS) provider based in St. Paul, Minnesota. We provide person-centered support services for individuals with disabilities, helping them live independently and participate fully in their communities. We are licensed by the Minnesota Department of Human Services (License #1112536).",
+      "UNIIKS is a licensed 144G Assisted Living provider and 245D home & community-based services (HCBS) provider based in Brooklyn Park, Minnesota. We provide person-centered support for individuals with disabilities and seniors, helping them live independently and participate fully in their communities. We are licensed by the Minnesota Department of Human Services (License #1112536).",
   },
   {
     question: "What areas do you serve?",
     answer:
-      "We primarily serve individuals in Ramsey County and the greater Twin Cities metropolitan area. If you're located outside this area, please contact us to discuss whether we can accommodate your needs.",
+      "We primarily serve individuals in Hennepin County and the greater Twin Cities metropolitan area. If you're located outside this area, please contact us to discuss whether we can accommodate your needs.",
   },
   {
     question: "What types of disabilities do you serve?",
@@ -42,7 +42,7 @@ const serviceFAQs = [
   {
     question: "What services does UNIIKS provide?",
     answer:
-      "We offer seven core services: Individualized Home Supports with Family Training, Adult Companion Services, Respite Care, Homemaker Services, Individual Community Living Support (ICLS), Employment Services, and 24-Hour Emergency Assistance. Each service is tailored to the individual's unique needs and goals.",
+      "Our flagship offering is 144G Assisted Living. We also provide 245D home and community-based services including Individualized Home Supports with Family Training, Adult Companion Services, Respite Care, Homemaker Services, Individual Community Living Support (ICLS), Employment Services, and 24-Hour Emergency Assistance. Each service is tailored to the individual's unique needs and goals.",
   },
   {
     question: "What is Individualized Home Supports with Family Training?",
@@ -119,7 +119,7 @@ export default function FAQPage() {
       <section className="relative text-white py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/team-interaction.jpg" alt="Caring team interacting warmly" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4">
@@ -241,8 +241,8 @@ export default function FAQPage() {
                 <Link href="/contact" className="bg-[var(--color-secondary)] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors">
                   Contact Us
                 </Link>
-                <a href="tel:8479036172" className="border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] px-8 py-4 rounded-xl font-semibold hover:bg-[var(--color-secondary)]/5 transition-colors">
-                  Call (847) 903-6172
+                <a href="tel:7632882496" className="border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] px-8 py-4 rounded-xl font-semibold hover:bg-[var(--color-secondary)]/5 transition-colors">
+                  Call (763) 288-2496
                 </a>
               </div>
             </div>

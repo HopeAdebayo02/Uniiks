@@ -28,11 +28,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* About */}
           <div className="lg:col-span-1">
-            <h3 className="text-xl font-bold mb-1">UNIIKS LLC</h3>
+            <h3 className="text-xl font-bold mb-1">UNIIKS</h3>
             <p className="text-[var(--color-accent)] text-sm font-semibold italic mb-3">We Care Like Family</p>
             <div className="section-divider mb-4" />
             <p className="text-white/70 text-sm leading-relaxed mb-5">
-              Empowering individuals with disabilities through compassionate, person-centered home and community-based services in St. Paul, Minnesota.
+              144G Assisted Living and 245D home & community-based services for individuals with disabilities and seniors in Brooklyn Park, Minnesota.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3">
@@ -111,7 +111,7 @@ export default function Footer() {
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <span>220 Robert St S, Ste 107<br />St. Paul, MN 55107</span>
+                <span>1909 S Meadowwood Ct<br />Brooklyn Park, MN 55444</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
@@ -119,7 +119,7 @@ export default function Footer() {
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                 </div>
-                <a href="tel:8479036172" className="hover:text-[var(--color-accent)] transition-colors">(847) 903-6172</a>
+                <a href="tel:7632882496" className="hover:text-[var(--color-accent)] transition-colors">(763) 288-2496</a>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
@@ -169,7 +169,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
-          <p>&copy; {new Date().getFullYear()} UNIIKS LLC. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} UNIIKS. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Use</Link>

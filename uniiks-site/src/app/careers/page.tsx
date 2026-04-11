@@ -65,7 +65,7 @@ const openings = [
   {
     title: "Direct Support Professional (DSP)",
     type: "Full-Time / Part-Time",
-    location: "St. Paul, MN & Surrounding Areas",
+    location: "Brooklyn Park, MN & Surrounding Areas",
     description:
       "Provide direct support to individuals with disabilities in their homes and communities. Assist with daily living skills, community participation, and achieving personal goals.",
     requirements: [
@@ -80,7 +80,7 @@ const openings = [
   {
     title: "Personal Care Aide (PCA)",
     type: "Full-Time / Part-Time",
-    location: "St. Paul, MN & Surrounding Areas",
+    location: "Brooklyn Park, MN & Surrounding Areas",
     description:
       "Assist individuals with personal care needs, household tasks, and health-related activities to support independent living.",
     requirements: [
@@ -95,7 +95,7 @@ const openings = [
   {
     title: "Home Health Aide",
     type: "Full-Time / Part-Time",
-    location: "St. Paul, MN & Surrounding Areas",
+    location: "Brooklyn Park, MN & Surrounding Areas",
     description:
       "Provide in-home health support services including monitoring health status, assisting with health-related tasks, and supporting overall well-being.",
     requirements: [
@@ -111,10 +111,28 @@ const openings = [
 
 export default function CareersPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "career", ...data }),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(body.error || "Unable to submit application. Please try again.");
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -129,7 +147,7 @@ export default function CareersPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/95 via-[var(--color-primary)]/85 to-[var(--color-primary-light)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         </div>
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4">
@@ -293,11 +311,17 @@ export default function CareersPage() {
                     <label htmlFor="experience" className="block text-sm font-medium text-[var(--color-text)] mb-1.5">Relevant Experience</label>
                     <textarea id="experience" name="experience" rows={4} placeholder="Tell us about your relevant experience, certifications, and why you want to join UNIIKS..." className="w-full px-4 py-3 border border-[var(--color-border)] rounded-xl focus:ring-2 focus:ring-[var(--color-secondary)] focus:border-transparent outline-none resize-y" />
                   </div>
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-700">
+                      {error}
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    className="bg-[var(--color-secondary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors w-full"
+                    disabled={submitting}
+                    className="bg-[var(--color-secondary)] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-[var(--color-primary-light)] transition-colors w-full disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Submit Application
+                    {submitting ? "Submitting..." : "Submit Application"}
                   </button>
                 </form>
               </div>
