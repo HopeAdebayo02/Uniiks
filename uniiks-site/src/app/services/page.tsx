@@ -174,7 +174,7 @@ export default function ServicesPage() {
             src="/services-independence.jpg"
             alt="Woman in wheelchair preparing food independently in kitchen"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
@@ -268,7 +268,7 @@ export default function ServicesPage() {
             src="/support-home.jpg"
             alt="Support worker with client in a home setting"
             fill
-            className="object-cover"
+            className="object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
         </div>

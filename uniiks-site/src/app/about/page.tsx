@@ -72,13 +72,6 @@ const values = [
   },
 ];
 
-const milestones = [
-  { year: "2022", title: "Founded", description: "UNIIKS established in Minnesota with a vision to empower individuals with disabilities and seniors." },
-  { year: "2022", title: "Licensed", description: "Received Minnesota DHS licensure (License #1112536) to provide home and community-based services." },
-  { year: "2023", title: "Growing", description: "Expanded service offerings and team to serve more individuals across the Twin Cities and beyond." },
-  { year: "2024", title: "Evolving", description: "Continued growth with enhanced training programs and culturally responsive service delivery." },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -89,7 +82,7 @@ export default function AboutPage() {
             src="/team-interaction.jpg"
             alt="Caregivers interacting warmly with clients"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
@@ -135,7 +128,7 @@ export default function AboutPage() {
                   src="/about-community.jpg"
                   alt="Elderly people and caregiver in a community room"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] rounded-2xl p-8 text-white shadow-xl">
@@ -162,39 +155,6 @@ export default function AboutPage() {
                 </div>
               </div>
             </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-20 bg-[var(--color-bg-alt)]">
-        <div className="max-w-7xl mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <p className="text-[var(--color-secondary)] font-semibold text-sm uppercase tracking-wider mb-3">Our Journey</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">Milestones</h2>
-              <div className="section-divider mx-auto" />
-            </div>
-          </AnimatedSection>
-
-          <div className="max-w-3xl mx-auto">
-            {milestones.map((milestone, i) => (
-              <AnimatedSection key={i} delay={(i % 4) * 100 as 100 | 200 | 300 | 400}>
-                <div className="flex gap-6 mb-8 last:mb-0">
-                  <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 bg-[var(--color-secondary)] text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">
-                      {milestone.year.slice(2)}
-                    </div>
-                    {i < milestones.length - 1 && <div className="w-px h-full bg-[var(--color-border)] mt-2" />}
-                  </div>
-                  <div className="pb-8">
-                    <p className="text-xs font-semibold text-[var(--color-secondary)] uppercase tracking-wider">{milestone.year}</p>
-                    <h3 className="text-lg font-bold text-[var(--color-text)] mb-1">{milestone.title}</h3>
-                    <p className="text-[var(--color-text-light)] text-sm leading-relaxed">{milestone.description}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
           </div>
         </div>
       </section>
@@ -280,7 +240,7 @@ export default function AboutPage() {
             src="/care-hands.jpg"
             alt="Caring hands"
             fill
-            className="object-cover"
+            className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
         </div>

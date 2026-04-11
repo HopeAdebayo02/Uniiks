@@ -144,7 +144,7 @@ export default function CareersPage() {
             src="/careers-team.jpg"
             alt="Healthcare team walking through a hospital corridor"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />

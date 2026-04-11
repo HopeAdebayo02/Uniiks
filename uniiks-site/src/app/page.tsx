@@ -72,49 +72,6 @@ const services = [
   },
 ];
 
-const steps = [
-  {
-    number: "01",
-    title: "Contact Us",
-    description: "Reach out by phone, email, or through our referral form to get started.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C8.716 21 3 15.284 3 8V5z" />
-      </svg>
-    ),
-  },
-  {
-    number: "02",
-    title: "Assessment",
-    description: "We meet with you to understand your unique needs, strengths, and goals.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-      </svg>
-    ),
-  },
-  {
-    number: "03",
-    title: "Personalized Plan",
-    description: "Together, we develop a customized support plan tailored to your life.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-      </svg>
-    ),
-  },
-  {
-    number: "04",
-    title: "Ongoing Support",
-    description: "Our dedicated team provides consistent, quality care and adjusts as needed.",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-  },
-];
-
 const waivers = [
   { abbr: "DD", name: "Developmental Disabilities" },
   { abbr: "CADI", name: "Community Access for Disability Inclusion" },
@@ -122,39 +79,6 @@ const waivers = [
   { abbr: "CAC", name: "Community Alternative Care" },
   { abbr: "EW", name: "Elderly Waiver" },
   { abbr: "AC", name: "Alternative Care" },
-];
-
-const testimonials = [
-  {
-    quote:
-      "UNIIKS has been a lifeline for our family. Their staff truly cares about my son's progress and independence. Every day I see him growing more confident.",
-    name: "Sarah M.",
-    relation: "Parent of Client",
-  },
-  {
-    quote:
-      "The individualized approach makes all the difference. They listen to our needs and adapt their support accordingly. It's truly person-centered care.",
-    name: "James K.",
-    relation: "Sibling of Client",
-  },
-  {
-    quote:
-      "Professional, compassionate, and reliable. We couldn't ask for a better support team. They go above and beyond every single day.",
-    name: "Maria L.",
-    relation: "Guardian of Client",
-  },
-  {
-    quote:
-      "As a case manager, I've referred several individuals to UNIIKS and the feedback has been consistently positive. Their communication is excellent.",
-    name: "David R.",
-    relation: "County Case Manager",
-  },
-  {
-    quote:
-      "The employment services helped my daughter find meaningful work for the first time. The ongoing support has been invaluable to her confidence.",
-    name: "Patricia W.",
-    relation: "Parent of Client",
-  },
 ];
 
 const stats = [
@@ -175,7 +99,7 @@ export default function Home() {
             src="/hero-caregiver.jpg"
             alt="Caregiver assisting an elderly person"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
@@ -351,9 +275,9 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {services.map((service, i) => (
-              <AnimatedSection key={service.title} delay={(i % 3) * 100 as 100 | 200 | 300}>
+              <AnimatedSection key={service.title} delay={(i % 3) * 100 as 100 | 200 | 300} className="h-full">
                 <Link
                   href={service.href}
                   className="block bg-white border border-[var(--color-border)] rounded-xl p-7 card-hover group h-full"
@@ -430,7 +354,7 @@ export default function Home() {
                     src="/care-hands.jpg"
                     alt="Two hands gently holding each other in comfort"
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-6">
                     <p className="text-white font-bold text-lg italic">&ldquo;We Care Like Family&rdquo;</p>
@@ -466,49 +390,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <p className="text-[var(--color-secondary)] font-semibold text-sm uppercase tracking-wider mb-3">
-                Getting Started
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
-                How It Works
-              </h2>
-              <div className="section-divider mx-auto mb-4" />
-              <p className="text-[var(--color-text-light)] max-w-2xl mx-auto text-lg">
-                Getting started with UNIIKS is simple. We guide you through every step of the process.
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, i) => (
-              <AnimatedSection key={step.number} delay={(i % 4) * 100 as 100 | 200 | 300 | 400}>
-                <div className="relative text-center group">
-                  {/* Connector line */}
-                  {i < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-[var(--color-border)]" />
-                  )}
-                  <div className="relative z-10">
-                    <div className="w-16 h-16 bg-white border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-[var(--color-secondary)] group-hover:text-white transition-all shadow-sm">
-                      {step.icon}
-                    </div>
-                    <p className="text-xs font-bold text-[var(--color-secondary)] mb-1">{step.number}</p>
-                    <h3 className="text-lg font-semibold mb-2 text-[var(--color-text)]">
-                      {step.title}
-                    </h3>
-                    <p className="text-[var(--color-text-light)] text-sm">{step.description}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Waivers Accepted */}
       <section className="py-20 bg-[var(--color-bg-alt)]">
         <div className="max-w-7xl mx-auto px-4">
@@ -527,12 +408,12 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto items-stretch">
             {waivers.map((waiver, i) => (
-              <AnimatedSection key={waiver.abbr} animation="scale" delay={(i % 3) * 100 as 100 | 200 | 300}>
+              <AnimatedSection key={waiver.abbr} animation="scale" delay={(i % 3) * 100 as 100 | 200 | 300} className="h-full">
                 <Link
                   href={`/waivers#${waiver.abbr.toLowerCase()}`}
-                  className="block bg-white border border-[var(--color-border)] rounded-xl p-5 text-center card-hover group"
+                  className="flex flex-col justify-center h-full bg-white border border-[var(--color-border)] rounded-xl p-5 text-center card-hover group"
                 >
                   <p className="text-2xl font-bold text-[var(--color-primary)] group-hover:text-[var(--color-secondary)] transition-colors mb-1">
                     {waiver.abbr}
@@ -559,27 +440,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <p className="text-[var(--color-secondary)] font-semibold text-sm uppercase tracking-wider mb-3">
-                Testimonials
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
-                What Families Are Saying
-              </h2>
-              <div className="section-divider mx-auto" />
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection>
-            <TestimonialCarousel testimonials={testimonials} />
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* CTA Banner */}
       <section className="relative text-white py-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -587,7 +447,7 @@ export default function Home() {
             src="/about-community.jpg"
             alt="Elderly people and caregiver in a warm community setting"
             fill
-            className="object-cover"
+            className="object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
         </div>
