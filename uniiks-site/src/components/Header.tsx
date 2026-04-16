@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/waivers", label: "Waivers" },
   { href: "/referrals", label: "Referrals" },
@@ -29,89 +29,85 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-[var(--color-primary-dark)] text-white text-sm py-2.5">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      {/* Slim utility bar */}
+      <div className="bg-[var(--color-primary-dark)] text-white/80 text-[12px] tracking-wide">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-9">
           <div className="flex items-center gap-5">
-            <a href="tel:7632882496" className="hover:text-[var(--color-accent)] flex items-center gap-1.5 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
+            <a href="tel:7632882496" className="hover:text-[var(--color-terracotta)] transition-colors flex items-center gap-1.5">
+              <span className="w-1 h-1 rounded-full bg-[var(--color-terracotta)]" />
               (763) 288-2496
             </a>
-            <span className="hidden sm:inline text-white/30">|</span>
-            <a href="mailto:admin@uniikscare.com" className="hover:text-[var(--color-accent)] hidden sm:flex items-center gap-1.5 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
+            <span className="hidden sm:inline text-white/20">·</span>
+            <a href="mailto:admin@uniikscare.com" className="hover:text-[var(--color-terracotta)] hidden sm:inline transition-colors">
               admin@uniikscare.com
             </a>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="hidden md:inline text-white/70">MN DHS Licensed Provider</span>
-            <span className="hidden lg:inline text-white/30">|</span>
-            <span className="hidden lg:inline text-white/70">24/7 Emergency Line Available</span>
+          <div className="hidden md:flex items-center gap-4 text-white/60">
+            <span>MN DHS Licensed · #1112536</span>
+            <span className="hidden lg:inline text-white/20">·</span>
+            <span className="hidden lg:inline">24/7 Emergency Line</span>
           </div>
         </div>
       </div>
 
-      {/* Main Nav */}
+      {/* Main nav */}
       <header
-        className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${
-          scrolled ? "shadow-md" : "shadow-sm border-b border-[var(--color-border)]"
+        className={`bg-white sticky top-0 z-50 transition-all duration-300 ${
+          scrolled ? "shadow-[0_1px_20px_-8px_rgba(26,58,82,0.25)]" : "border-b border-[var(--color-rule)]"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
               src="/logo.jpg"
-              alt="UNIIKS Logo"
-              width={240}
-              height={80}
-              className="h-20 w-auto"
+              alt="UNIIKS"
+              width={200}
+              height={64}
+              className="h-14 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-0.5" aria-label="Main navigation">
+          <nav className="hidden xl:flex items-center gap-1" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`relative px-4 py-2 text-[13px] tracking-wide uppercase transition-colors ${
                   pathname === link.href
-                    ? "text-[var(--color-secondary)]"
-                    : "text-[var(--color-text)] hover:text-[var(--color-secondary)]"
+                    ? "text-[var(--color-terracotta)] font-semibold"
+                    : "text-[var(--color-ink)] hover:text-[var(--color-terracotta)] font-medium"
                 }`}
               >
                 {link.label}
                 {pathname === link.href && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-[var(--color-secondary)] rounded-full" />
+                  <span className="absolute bottom-0 left-4 right-4 h-px bg-[var(--color-terracotta)]" />
                 )}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="ml-4 bg-[var(--color-secondary)] text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-[var(--color-primary-light)] transition-colors pulse-glow"
+              className="ml-5 inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-3 text-[12px] tracking-[0.18em] uppercase font-semibold hover:bg-[var(--color-terracotta)] transition-colors"
             >
-              Get Started
+              Schedule a Tour
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
             </Link>
           </nav>
 
-          {/* Mobile: Phone + Hamburger */}
-          <div className="flex items-center gap-3 xl:hidden">
+          {/* Mobile */}
+          <div className="flex items-center gap-2 xl:hidden">
             <a
               href="tel:7632882496"
-              className="p-2 rounded-lg text-[var(--color-secondary)] hover:bg-[var(--color-bg-alt)] transition-colors"
+              className="p-2 text-[var(--color-primary)] hover:bg-[var(--color-cream)] transition-colors"
               aria-label="Call us"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -119,18 +115,18 @@ export default function Header() {
               </svg>
             </a>
             <button
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="p-2 hover:bg-[var(--color-cream)] transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
               )}
             </button>
@@ -138,19 +134,16 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`xl:hidden mobile-menu-enter ${mobileOpen ? "open" : ""}`}
-          aria-label="Mobile navigation"
-        >
-          <nav className="bg-white border-t border-[var(--color-border)] px-4 pb-4 pt-2">
+        <div className={`xl:hidden mobile-menu-enter ${mobileOpen ? "open" : ""}`} aria-label="Mobile navigation">
+          <nav className="bg-white border-t border-[var(--color-rule)] px-6 pb-6 pt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                className={`block px-3 py-3 text-sm tracking-wide uppercase transition-colors ${
                   pathname === link.href
-                    ? "bg-[var(--color-secondary)]/5 text-[var(--color-secondary)] border-l-3 border-[var(--color-secondary)]"
-                    : "text-[var(--color-text)] hover:bg-gray-50"
+                    ? "text-[var(--color-terracotta)] font-semibold"
+                    : "text-[var(--color-ink)] hover:text-[var(--color-terracotta)]"
                 }`}
               >
                 {link.label}
@@ -158,19 +151,10 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="block mt-3 bg-[var(--color-secondary)] text-white text-center px-5 py-3 rounded-lg text-sm font-semibold hover:bg-[var(--color-primary-light)] transition-colors"
+              className="block mt-4 bg-[var(--color-primary)] text-white text-center px-5 py-3.5 text-[12px] tracking-[0.18em] uppercase font-semibold hover:bg-[var(--color-terracotta)] transition-colors"
             >
-              Get Started
+              Schedule a Tour
             </Link>
-            <div className="flex items-center justify-center gap-4 mt-3 pt-3 border-t border-[var(--color-border)]">
-              <a href="tel:7632882496" className="text-sm text-[var(--color-primary)] font-semibold">
-                Call: (763) 288-2496
-              </a>
-              <span className="text-[var(--color-border)]">|</span>
-              <a href="mailto:admin@uniikscare.com" className="text-sm text-[var(--color-primary)] font-semibold">
-                Email Us
-              </a>
-            </div>
           </nav>
         </div>
       </header>

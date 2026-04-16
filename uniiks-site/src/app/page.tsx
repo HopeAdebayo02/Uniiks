@@ -3,73 +3,40 @@ import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import StatsCounter from "@/components/StatsCounter";
 
+const audiences = [
+  {
+    n: "01",
+    label: "For Individuals",
+    title: "A life of purpose, with the right support.",
+    body: "Services designed to honor your independence, goals, and routines — in a residence that truly feels like home.",
+    href: "/services",
+    linkLabel: "Explore services",
+  },
+  {
+    n: "02",
+    label: "For Families",
+    title: "Peace of mind, built around your loved one.",
+    body: "Transparent communication, individualized care plans, and a staff who shows up like family does — every single day.",
+    href: "/contact",
+    linkLabel: "Talk with our team",
+  },
+  {
+    n: "03",
+    label: "For Case Managers",
+    title: "A referral partner who responds promptly.",
+    body: "Submit securely, hear back within 1–2 business days, and count on a provider enrolled across Minnesota's major waivers.",
+    href: "/referrals",
+    linkLabel: "Make a referral",
+  },
+];
+
 const services = [
-  {
-    title: "144G Assisted Living",
-    description:
-      "Our flagship program — a comfortable, home-like residence licensed under MN Statute 144G with personalized support plans built around each resident.",
-    href: "/services#assisted-living",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-  },
-  {
-    title: "24-Hour Care & Supervision",
-    description:
-      "Trained staff on-site around the clock to provide safety oversight, emergency response, and reassurance for residents and families.",
-    href: "/services#assisted-living",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Medication Management",
-    description:
-      "Trained staff help residents take the right medication at the right time, with documentation, monitoring, and coordination with providers.",
-    href: "/services#assisted-living",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Personal Care & Daily Living",
-    description:
-      "Dignified assistance with bathing, dressing, grooming, mobility, and other activities of daily living — tailored to each resident's needs.",
-    href: "/services#assisted-living",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Nutritious Meals & Dining",
-    description:
-      "Three home-cooked meals each day plus snacks, planned with residents' dietary needs and preferences in mind.",
-    href: "/services#assisted-living",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Housekeeping & Laundry",
-    description:
-      "A clean, safe, and comfortable residence — with routine housekeeping, linens, and laundry handled for every resident.",
-    href: "/services#assisted-living",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-  },
+  { n: "01", title: "24-Hour Care & Supervision", body: "Trained staff on-site around the clock for safety oversight, emergency response, and steady reassurance." },
+  { n: "02", title: "Medication Management", body: "Coordinated administration, documentation, and monitoring — with direct handoff to residents' providers." },
+  { n: "03", title: "Personal Care & Daily Living", body: "Dignified assistance with bathing, dressing, grooming, and mobility — tailored to each resident's rhythm." },
+  { n: "04", title: "Nutritious Meals & Dining", body: "Three home-cooked meals plus snacks every day, planned around dietary needs and personal preferences." },
+  { n: "05", title: "Housekeeping & Laundry", body: "A clean, safe, and comfortable residence — with routine housekeeping, linens, and laundry handled." },
+  { n: "06", title: "Community & Companionship", body: "Activities, conversation, and shared moments that make a house a home for every resident." },
 ];
 
 const waivers = [
@@ -88,389 +55,373 @@ const stats = [
   { value: 100, suffix: "%", label: "Person-Centered" },
 ];
 
+const convictions = [
+  "Person-centered care tailored to individual needs",
+  "Trained and compassionate support staff",
+  "Family involvement and training programs",
+  "24/7 emergency assistance available",
+  "Accepted by major Medicaid waiver programs",
+  "Culturally responsive services",
+];
+
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative text-white overflow-hidden">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/hero-caregiver.jpg"
-            alt="Caregiver assisting an elderly person"
-            fill
-            className="object-cover object-top"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
-        </div>
-        <div className="absolute inset-0 hero-pattern" />
+      {/* ═══ HERO ═══ */}
+      <section className="relative bg-[var(--color-cream)] overflow-hidden">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-0 min-h-[640px] lg:min-h-[720px]">
+          {/* Left — cream editorial panel */}
+          <div className="lg:col-span-5 px-6 lg:pl-8 lg:pr-12 py-16 lg:py-24 flex flex-col justify-center relative z-10">
+            <AnimatedSection>
+              <p className="eyebrow mb-8">Senior Care · Brooklyn Park, MN</p>
+              <h1 className="display-serif text-5xl md:text-6xl lg:text-[68px] text-[var(--color-primary)] mb-6">
+                We care <em className="not-italic text-[var(--color-terracotta)]">like family.</em>
+              </h1>
+              <div className="rule mb-8" />
+              <p className="text-lg text-[var(--color-ink-muted)] leading-relaxed mb-10 max-w-lg">
+                UNIIKS provides compassionate, person-centered <span className="text-[var(--color-ink)] font-medium">144G Assisted Living</span> in Brooklyn Park, Minnesota — alongside 245D home and community-based services that help people live with independence and dignity.
+              </p>
 
-        <div className="relative max-w-7xl mx-auto px-4 py-28 md:py-40">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              144G Assisted Living
-            </h1>
-            <p className="text-xl md:text-2xl text-[var(--color-accent)] font-semibold mb-6">
-              We Care Like Family
-            </p>
+              <div className="flex flex-col sm:flex-row gap-4 sm:items-center mb-12">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] text-white px-8 py-4 text-[12px] tracking-[0.2em] uppercase font-semibold hover:bg-[var(--color-terracotta)] transition-colors"
+                >
+                  Schedule a Tour
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/referrals"
+                  className="link-quiet text-[13px] tracking-[0.15em] uppercase"
+                >
+                  Make a referral
+                </Link>
+              </div>
 
-            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl leading-relaxed">
-              UNIIKS provides compassionate, person-centered 144G Assisted Living in Brooklyn Park, Minnesota — along with 245D home and community-based services that help individuals live fulfilling, independent lives.
-            </p>
+              {/* Micro contact row */}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-8 border-t border-[var(--color-rule)] text-[13px] text-[var(--color-ink-muted)]">
+                <a href="tel:7632882496" className="hover:text-[var(--color-terracotta)] transition-colors">
+                  (763) 288-2496
+                </a>
+                <span className="text-[var(--color-rule)]">·</span>
+                <span>24/7 Emergency Line</span>
+                <span className="text-[var(--color-rule)]">·</span>
+                <span>MN DHS #1112536</span>
+              </div>
+            </AnimatedSection>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="bg-white text-[var(--color-primary)] px-8 py-4 rounded-xl font-semibold text-center hover:bg-gray-100 transition-all hover:shadow-lg hover:shadow-white/20"
-              >
-                Request Services
-              </Link>
-              <Link
-                href="/referrals"
-                className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-center hover:bg-white/10 hover:border-white/50 transition-all backdrop-blur-sm"
-              >
-                Make a Referral
-              </Link>
-            </div>
-
-            {/* Quick contact */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-10 pt-8 border-t border-white/10">
-              <a
-                href="tel:7632882496"
-                className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                (763) 288-2496
-              </a>
-              <span className="hidden sm:inline text-white/20">|</span>
-              <a
-                href="mailto:admin@uniikscare.com"
-                className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-                admin@uniikscare.com
-              </a>
-              <span className="hidden sm:inline text-white/20">|</span>
-              <span className="flex items-center gap-2 text-white/80 text-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-                </svg>
-                24/7 Emergency Line
-              </span>
+          {/* Right — photo */}
+          <div className="lg:col-span-7 relative min-h-[340px] lg:min-h-full">
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0 ken-burns">
+                <Image
+                  src="/hero-caregiver.jpg"
+                  alt="A caregiver offering a steady, reassuring presence"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                />
+              </div>
+              {/* Soft cream wash on left edge blending into panel */}
+              <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[var(--color-cream)] to-transparent pointer-events-none hidden lg:block" />
+              <div className="absolute bottom-6 right-6 max-w-xs bg-[var(--color-bone)]/95 backdrop-blur-sm px-6 py-5 border-l-2 border-[var(--color-terracotta)]">
+                <p className="pullquote text-xl text-[var(--color-primary)] leading-snug">
+                  &ldquo;Dignity, independence, and a home that truly feels like one.&rdquo;
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="bg-white border-b border-[var(--color-border)] -mt-1">
-        <div className="max-w-7xl mx-auto px-4 py-10">
+      {/* ═══ STATS STRIP ═══ */}
+      <section className="bg-white border-b border-[var(--color-rule)]">
+        <div className="max-w-7xl mx-auto px-6 py-14">
           <StatsCounter stats={stats} />
         </div>
       </section>
 
-      {/* Who We Serve - Segmented Entry Points */}
-      <section className="py-20 bg-[var(--color-bg-alt)]">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* ═══ WHO WE SERVE — numbered editorial ═══ */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection>
-            <div className="text-center mb-14">
-              <p className="text-[var(--color-secondary)] font-semibold text-sm uppercase tracking-wider mb-3">
-                How Can We Help?
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
-                We&apos;re Here for You
-              </h2>
-              <div className="section-divider mx-auto mb-4" />
-              <p className="text-[var(--color-text-light)] max-w-2xl mx-auto text-lg">
-                Whether you&apos;re seeking services for yourself, a loved one, or making a professional referral, we&apos;re ready to help.
-              </p>
+            <div className="grid lg:grid-cols-12 gap-8 items-end mb-16 lg:mb-20">
+              <div className="lg:col-span-7">
+                <p className="eyebrow mb-6">How Can We Help</p>
+                <h2 className="display-serif text-4xl md:text-5xl text-[var(--color-primary)]">
+                  Whoever you are,<br />we&apos;re ready for you.
+                </h2>
+              </div>
+              <div className="lg:col-span-5 lg:pb-3">
+                <p className="text-[var(--color-ink-muted)] text-lg leading-relaxed">
+                  Whether you&apos;re exploring options for yourself, for someone you love, or making a professional referral — UNIIKS meets you where you are.
+                </p>
+              </div>
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            <AnimatedSection delay={100} className="h-full">
-              <Link href="/services" className="flex flex-col h-full bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-text)] mb-2">For Individuals</h3>
-                <p className="text-[var(--color-text-light)] text-sm mb-4">
-                  Discover services designed to support your independence and help you achieve your personal goals.
-                </p>
-                <span className="mt-auto text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
-                  Explore Services
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </span>
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={200} className="h-full">
-              <Link href="/contact" className="flex flex-col h-full bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-text)] mb-2">For Families</h3>
-                <p className="text-[var(--color-text-light)] text-sm mb-4">
-                  Find the right support for your loved one. We work with families to create personalized care plans.
-                </p>
-                <span className="mt-auto text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
-                  Get in Touch
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </span>
-              </Link>
-            </AnimatedSection>
-
-            <AnimatedSection delay={300} className="h-full">
-              <Link href="/referrals" className="flex flex-col h-full bg-white rounded-2xl p-8 border border-[var(--color-border)] card-hover group text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-warm)] to-[var(--color-warm-light)] rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-text)] mb-2">For Case Managers</h3>
-                <p className="text-[var(--color-text-light)] text-sm mb-4">
-                  Submit referrals quickly and securely. We respond within 1-2 business days.
-                </p>
-                <span className="mt-auto text-[var(--color-secondary)] font-semibold text-sm inline-flex items-center justify-center gap-1 group-hover:gap-2 transition-all">
-                  Make a Referral
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </span>
-              </Link>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Overview */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <p className="text-[var(--color-secondary)] font-semibold text-sm uppercase tracking-wider mb-3">
-                What We Offer
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
-                Our Services
-              </h2>
-              <div className="section-divider mx-auto mb-4" />
-              <p className="text-[var(--color-text-light)] max-w-2xl mx-auto text-lg">
-                Our 144G Assisted Living community pairs a home-like residence with around-the-clock support, dignified personal care, and everything residents need to thrive.
-              </p>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            {services.map((service, i) => (
-              <AnimatedSection key={service.title} delay={(i % 3) * 100 as 100 | 200 | 300} className="h-full">
-                <Link
-                  href={service.href}
-                  className="block bg-white border border-[var(--color-border)] rounded-xl p-7 card-hover group h-full"
-                >
-                  <div className="w-12 h-12 bg-[var(--color-secondary)]/10 rounded-xl flex items-center justify-center mb-4 text-[var(--color-secondary)] group-hover:bg-[var(--color-secondary)] group-hover:text-white transition-all">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2 text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-[var(--color-text-light)] text-sm leading-relaxed">
-                    {service.description}
+          <div className="grid md:grid-cols-3 gap-10 lg:gap-16">
+            {audiences.map((a, i) => (
+              <AnimatedSection key={a.n} delay={(i * 100) as 100 | 200 | 300}>
+                <Link href={a.href} className="group block">
+                  <p className="numeral text-6xl mb-6 transition-colors group-hover:text-[var(--color-primary)]">
+                    {a.n}
                   </p>
+                  <p className="eyebrow mb-4">{a.label}</p>
+                  <h3 className="font-serif text-[26px] text-[var(--color-primary)] leading-tight mb-4" style={{ fontWeight: 400 }}>
+                    {a.title}
+                  </h3>
+                  <p className="text-[var(--color-ink-muted)] leading-relaxed mb-6">
+                    {a.body}
+                  </p>
+                  <span className="text-[12px] tracking-[0.2em] uppercase font-semibold text-[var(--color-primary)] group-hover:text-[var(--color-terracotta)] inline-flex items-center gap-2 transition-colors">
+                    {a.linkLabel}
+                    <span className="w-6 h-px bg-current transition-all group-hover:w-10" />
+                  </span>
                 </Link>
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
 
-          <AnimatedSection className="text-center mt-10">
+      {/* ═══ MISSION ROW — image left, copy right ═══ */}
+      <section className="py-24 lg:py-32 bg-[var(--color-cream)]">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <AnimatedSection animation="slide-left" className="lg:col-span-6">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/care-hands.jpg"
+                alt="Two hands gently holding each other"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+              {/* Corner caption */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                <p className="pullquote text-2xl text-white">
+                  &ldquo;We Care Like Family.&rdquo;
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection animation="slide-right" className="lg:col-span-6">
+            <p className="eyebrow mb-6">Our Mission</p>
+            <h2 className="display-serif text-4xl md:text-5xl text-[var(--color-primary)] mb-8">
+              Building a home where independence and dignity are daily practice.
+            </h2>
+            <p className="text-lg text-[var(--color-ink-muted)] leading-relaxed mb-6">
+              At UNIIKS, we believe every individual deserves the opportunity to thrive. Our person-centered approach means every support plan reflects the unique strengths, preferences, and goals of the person in our care.
+            </p>
+            <p className="text-lg text-[var(--color-ink-muted)] leading-relaxed mb-10">
+              We exist to empower individuals with disabilities and seniors through high-quality, individualized home and community-based services that promote independence, dignity, and a fuller quality of life.
+            </p>
+
+            <div className="grid sm:grid-cols-2 gap-6 pt-8 border-t border-[var(--color-rule)]">
+              <div>
+                <p className="eyebrow mb-3">Vision</p>
+                <p className="text-[var(--color-ink)] leading-relaxed">
+                  A community where every person, regardless of ability, has what they need to live a life of purpose.
+                </p>
+              </div>
+              <div>
+                <p className="eyebrow mb-3">Promise</p>
+                <p className="text-[var(--color-ink)] leading-relaxed">
+                  Transparent communication, culturally responsive care, and a team that treats every resident like family.
+                </p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ═══ FEATURED 144G ═══ */}
+      <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedSection>
+            <div className="mb-16 lg:mb-20 max-w-3xl">
+              <p className="eyebrow mb-6">What We Offer</p>
+              <h2 className="display-serif text-4xl md:text-5xl text-[var(--color-primary)] mb-6">
+                A residence designed for real life — supported by people who care.
+              </h2>
+              <p className="text-lg text-[var(--color-ink-muted)] leading-relaxed">
+                Our 144G Assisted Living community pairs a home-like residence with around-the-clock support, dignified personal care, and every comfort residents need to thrive.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          {/* Featured row */}
+          <AnimatedSection>
+            <div className="grid lg:grid-cols-12 gap-0 items-stretch mb-20 lg:mb-24">
+              <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-auto lg:min-h-[460px] overflow-hidden">
+                <Image
+                  src="/happy-senior.jpg"
+                  alt="A resident enjoying a peaceful moment in their home"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                />
+              </div>
+              <div className="lg:col-span-5 bg-[var(--color-primary)] text-white p-10 lg:p-14 flex flex-col justify-center">
+                <p className="eyebrow mb-6" style={{ color: "#E4A38A" }}>Flagship Program</p>
+                <h3 className="display-serif text-3xl md:text-4xl mb-5 text-white">
+                  144G Assisted Living
+                </h3>
+                <p className="text-white/80 leading-relaxed mb-8">
+                  A licensed, comfortable, home-like residence under MN Statute 144G — with personalized support plans built around each resident&apos;s life, not a script.
+                </p>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase font-semibold text-white hover:text-[var(--color-terracotta)] transition-colors"
+                >
+                  Explore the program
+                  <span className="w-8 h-px bg-current" />
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Services list — editorial 2-col */}
+          <div className="grid md:grid-cols-2 gap-x-16 gap-y-2">
+            {services.map((s, i) => (
+              <AnimatedSection key={s.n} delay={((i % 3) * 100) as 100 | 200 | 300}>
+                <div className="group flex gap-6 py-8 border-t border-[var(--color-rule)]">
+                  <span className="numeral text-2xl shrink-0 w-10 pt-1">
+                    {s.n}
+                  </span>
+                  <div className="flex-1">
+                    <h4 className="font-serif text-[22px] text-[var(--color-primary)] mb-2 transition-colors group-hover:text-[var(--color-terracotta)]" style={{ fontWeight: 500 }}>
+                      {s.title}
+                    </h4>
+                    <p className="text-[var(--color-ink-muted)] leading-relaxed">
+                      {s.body}
+                    </p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection className="pt-12 border-t border-[var(--color-rule)] mt-2">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 bg-[var(--color-bg-alt)] border border-[var(--color-border)] px-6 py-3 rounded-xl text-[var(--color-primary)] font-semibold hover:bg-[var(--color-secondary)] hover:text-white hover:border-[var(--color-secondary)] transition-all"
+              className="link-quiet text-[13px] tracking-[0.2em] uppercase"
             >
-              View All Services
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+              View full services
             </Link>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-[var(--color-bg-alt)]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <AnimatedSection animation="slide-left">
-              <p className="text-[var(--color-secondary)] font-semibold text-sm uppercase tracking-wider mb-3">
-                Why UNIIKS
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-2">
-                Why Families Choose Us
-              </h2>
-              <div className="section-divider mb-6" />
-              <p className="text-[var(--color-text-light)] text-lg mb-8 leading-relaxed">
-                At UNIIKS, we believe every individual deserves the opportunity to thrive. Our person-centered approach ensures that each support plan reflects the unique strengths, preferences, and goals of the people we serve.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Person-centered care tailored to individual needs",
-                  "Trained and compassionate support staff",
-                  "Family involvement and training programs",
-                  "24/7 emergency assistance available",
-                  "Accepted by major Medicaid waiver programs",
-                  "Culturally responsive services",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <div className="w-6 h-6 bg-[var(--color-success)]/10 rounded-full flex items-center justify-center shrink-0 mt-0.5">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-[var(--color-success)]" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="text-[var(--color-text)]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </AnimatedSection>
-
-            <AnimatedSection animation="slide-right">
-              <div className="space-y-6">
-                {/* Photo */}
-                <div className="relative rounded-2xl overflow-hidden h-56">
-                  <Image
-                    src="/care-hands.jpg"
-                    alt="Two hands gently holding each other in comfort"
-                    fill
-                    className="object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-6">
-                    <p className="text-white font-bold text-lg italic">&ldquo;We Care Like Family&rdquo;</p>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] rounded-2xl p-8 text-white">
-                  <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[var(--color-accent)]" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-                    </svg>
-                    Our Mission
-                  </h3>
-                  <p className="text-white/85 leading-relaxed">
-                    To empower individuals with disabilities by providing high-quality, individualized home and community-based services that promote independence, dignity, and an enhanced quality of life.
-                  </p>
-                </div>
-                <div className="bg-white rounded-2xl p-8 border border-[var(--color-border)] shadow-sm">
-                  <h3 className="text-xl font-bold mb-3 text-[var(--color-text)] flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[var(--color-warm)]" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                      <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-                    </svg>
-                    Our Vision
-                  </h3>
-                  <p className="text-[var(--color-text-light)] leading-relaxed">
-                    A community where every person, regardless of ability, has the support and resources they need to live a life of purpose and fulfillment.
-                  </p>
-                </div>
+      {/* ═══ WHY UNIIKS — pullquote + convictions ═══ */}
+      <section className="py-24 lg:py-32 bg-[var(--color-sand)] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-16 lg:gap-24">
+          <AnimatedSection animation="slide-left" className="lg:col-span-6">
+            <p className="eyebrow mb-6">Why UNIIKS</p>
+            <h2 className="pullquote text-3xl md:text-[42px] text-[var(--color-primary)] leading-tight mb-10">
+              &ldquo;Every person who walks through our doors deserves to be met as whole — with their story, their strengths, and their own way of living.&rdquo;
+            </h2>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-px bg-[var(--color-terracotta)]" />
+              <div>
+                <p className="text-[var(--color-ink)] font-medium">Kayode Odufuye</p>
+                <p className="text-[13px] text-[var(--color-ink-muted)] tracking-wide">Founder, UNIIKS LLC</p>
               </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Waivers Accepted */}
-      <section className="py-20 bg-[var(--color-bg-alt)]">
-        <div className="max-w-7xl mx-auto px-4">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <p className="text-[var(--color-secondary)] font-semibold text-sm uppercase tracking-wider mb-3">
-                Insurance & Coverage
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
-                Medicaid Waivers We Accept
-              </h2>
-              <div className="section-divider mx-auto mb-4" />
-              <p className="text-[var(--color-text-light)] max-w-2xl mx-auto text-lg">
-                We are an enrolled provider for multiple Minnesota Medicaid waiver programs.
-              </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto items-stretch">
-            {waivers.map((waiver, i) => (
-              <AnimatedSection key={waiver.abbr} animation="scale" delay={(i % 3) * 100 as 100 | 200 | 300} className="h-full">
+          <AnimatedSection animation="slide-right" className="lg:col-span-6">
+            <p className="eyebrow mb-6">Our Convictions</p>
+            <ul className="space-y-0 divide-y divide-[var(--color-rule)]">
+              {convictions.map((item, i) => (
+                <li key={item} className="flex items-start gap-5 py-5">
+                  <span className="numeral text-lg w-10 shrink-0 pt-0.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-[var(--color-ink)] text-lg leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ═══ WAIVERS STRIP ═══ */}
+      <section className="py-20 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatedSection>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+              <div>
+                <p className="eyebrow mb-4">Insurance & Coverage</p>
+                <h2 className="display-serif text-3xl md:text-4xl text-[var(--color-primary)]">
+                  Medicaid waivers we accept.
+                </h2>
+              </div>
+              <Link href="/waivers" className="link-quiet text-[12px] tracking-[0.2em] uppercase shrink-0">
+                Check your eligibility
+              </Link>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-t border-[var(--color-rule)]">
+            {waivers.map((w, i) => (
+              <AnimatedSection key={w.abbr} delay={((i % 3) * 100) as 100 | 200 | 300}>
                 <Link
-                  href={`/waivers#${waiver.abbr.toLowerCase()}`}
-                  className="flex flex-col justify-center h-full bg-white border border-[var(--color-border)] rounded-xl p-5 text-center card-hover group"
+                  href={`/waivers#${w.abbr.toLowerCase()}`}
+                  className="group block border-b border-r border-[var(--color-rule)] last:border-r-0 p-8 text-center hover:bg-[var(--color-cream)] transition-colors h-full"
                 >
-                  <p className="text-2xl font-bold text-[var(--color-primary)] group-hover:text-[var(--color-secondary)] transition-colors mb-1">
-                    {waiver.abbr}
+                  <p className="display-serif text-4xl text-[var(--color-primary)] mb-3 group-hover:text-[var(--color-terracotta)] transition-colors">
+                    {w.abbr}
                   </p>
-                  <p className="text-xs text-[var(--color-text-light)] leading-tight">
-                    {waiver.name}
+                  <p className="text-[12px] tracking-wide text-[var(--color-ink-muted)] leading-snug">
+                    {w.name}
                   </p>
                 </Link>
               </AnimatedSection>
             ))}
           </div>
-
-          <AnimatedSection className="text-center mt-8">
-            <Link
-              href="/waivers"
-              className="text-[var(--color-secondary)] font-semibold hover:text-[var(--color-primary)] transition-colors inline-flex items-center gap-1"
-            >
-              Learn more about waiver eligibility
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
-          </AnimatedSection>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="relative text-white py-20 overflow-hidden">
+      {/* ═══ CTA — full-bleed lifestyle ═══ */}
+      <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/about-community.jpg"
-            alt="Elderly people and caregiver in a warm community setting"
+            alt="A warm community gathering"
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
+          <div className="absolute inset-0 bg-[var(--color-primary-dark)]/70" />
         </div>
-        <div className="absolute inset-0 hero-pattern" />
 
-        <div className="relative max-w-7xl mx-auto px-4 text-center">
+        <div className="relative max-w-4xl mx-auto px-6 py-28 lg:py-36 text-center text-white">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Get Started?
+            <p className="eyebrow eyebrow-center mb-8" style={{ color: "#E4A38A" }}>
+              Begin the Conversation
+            </p>
+            <h2 className="display-serif text-4xl md:text-5xl lg:text-6xl mb-8">
+              Ready to find a home that feels like family?
             </h2>
-            <p className="text-xl text-white/85 mb-10 max-w-2xl mx-auto">
-              Contact us today to learn how UNIIKS can support you or your loved one on the path to greater independence.
+            <div className="w-16 h-px bg-[var(--color-terracotta)] mx-auto mb-10" />
+            <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto leading-relaxed">
+              Call us, send a note, or schedule a tour. We&apos;ll listen first — then help you find the right path forward.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-[var(--color-primary)] px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all hover:shadow-lg"
+                className="inline-flex items-center justify-center gap-2 bg-white text-[var(--color-primary)] px-8 py-4 text-[12px] tracking-[0.2em] uppercase font-semibold hover:bg-[var(--color-terracotta)] hover:text-white transition-colors"
               >
-                Contact Us Today
+                Schedule a Tour
               </Link>
               <a
                 href="tel:7632882496"
-                className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 hover:border-white/50 transition-all"
+                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 text-[12px] tracking-[0.2em] uppercase font-semibold hover:bg-white/10 transition-colors"
               >
                 Call (763) 288-2496
               </a>
