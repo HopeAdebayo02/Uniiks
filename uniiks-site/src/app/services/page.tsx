@@ -83,8 +83,8 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/support-home.jpg"
-            alt="A support worker with a client in a home setting"
+            src="/hero-caregiver.jpg"
+            alt="A caregiver holding hands with a joyful resident"
             fill
             className="object-cover object-center"
           />
